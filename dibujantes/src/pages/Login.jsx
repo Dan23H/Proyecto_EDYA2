@@ -1,4 +1,5 @@
 import React from "react";
+import { CompLogin } from "../componentes/CompLogin";
 
 export const Login = () => {
 
@@ -6,18 +7,7 @@ export const Login = () => {
 
         <div>
             <h1>Login</h1>
-            <div>
-                <label>Usuario:</label>
-                <input type="text" placeholder="Enter username" />
-            </div>
-            <div>
-                <label>Contraseña:</label>
-                <input type="password" placeholder="Enter password" />
-            </div>
-            <div>
-                <button>Sign In</button>
-                <button>Log In</button>
-            </div>
+            <CompLogin />
         </div>
 
     );

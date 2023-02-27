@@ -1,3 +1,5 @@
+import { FormatoMensaje } from "../componentes/FormatoMensaje"
+
 export const Mensajes = () => {
     return (
         <>
@@ -6,14 +8,11 @@ export const Mensajes = () => {
                     <h1>Mensajes</h1>
                 </thead>
                 <tbody>
-                    <td>
-                        <h2>Perfil</h2>
-                    </td>
-                    <td>
-                        <h3>De:</h3>
-                        <h3>Asunto: </h3>
-                    </td>
-
+                    <FormatoMensaje />
+                    <FormatoMensaje />
+                    <FormatoMensaje />
+                    <FormatoMensaje />
+                    <FormatoMensaje />
                 </tbody>
             </table>
         </>
