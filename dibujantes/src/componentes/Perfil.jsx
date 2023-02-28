@@ -1,6 +1,6 @@
 import React from "react";
 
-const Profile = ({ nombre, seguidores, pais, perfilImg, portadaImg }) => {
+export const Profile = ({ nombre, seguidores, pais, perfilImg, portadaImg }) => {
   return (
     <div>
         <div>
@@ -22,5 +22,3 @@ const Profile = ({ nombre, seguidores, pais, perfilImg, portadaImg }) => {
 
   );
 };
-
-export default Profile;

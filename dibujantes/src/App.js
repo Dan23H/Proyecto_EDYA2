@@ -1,7 +1,6 @@
 import './App.css';
-import { Login } from './pages/Login';
-import { SignIn } from './pages/SignIn';
-import { Mensajes } from './pages/Mensajes';
+import { Login, SignIn, Mensajes } from './pages';
+import { Notificaciones, Principal, Buscador} from './componentes';
 
 function App() {
   return (
@@ -9,6 +8,9 @@ function App() {
       <Login />
       <SignIn />
       <Mensajes />
+      <Notificaciones />
+      <Principal />
+      <Buscador />
     </>
   );
 }
