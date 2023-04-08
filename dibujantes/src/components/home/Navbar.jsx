@@ -19,7 +19,7 @@ export const Navbar = ({ searchBar, current, item1, item2, item3, item4 }) => {
     <>
       <div className="topboard">
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <Link className="navbar-brand" to="/interfaz-usuario">
+          <Link className="navbar-brand" to="/home">
             Inicio (Logo)
           </Link>
           <button
