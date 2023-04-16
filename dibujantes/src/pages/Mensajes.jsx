@@ -11,14 +11,10 @@ export const Mensajes = () => {
                 item3="Perfil"
                 item4=""
             />
-            <table>
-                <thead>
-                    <h1>Mensajes</h1>
-                </thead>
-                <tbody>
-                    <FormatoMensaje />
-                </tbody>
-            </table>
+            <FormatoMensaje nombre={"Manuel"} asunto={"Consejos sobre anatomia"}/>
+            <FormatoMensaje nombre={"Freddy Agulera"} asunto={"¿Cómo haces para realizar tu achurado?"}/>
+            <FormatoMensaje nombre={"Gabriel G"} asunto={"No consigo dominar la perspectiva"}/>
+            
         </>
     )
 }
