@@ -33,4 +33,35 @@
     color: rgb(151, 151, 151);
     font-weight: bold;
   }
+  /*d  */
+
+  .botones-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+  }
   
+  .boton-mensaje {
+    padding: 10px 20px;
+    background-color: #6C5DD3;
+    color: #fff;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    margin: 0 10px;
+  }
+  
+  .boton-enviar {
+    padding: 10px 20px;
+    background-color: #6C5DD3;
+    color: #fff;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    margin: 0 10px;
+  }
+  
+  .boton-mensaje:hover, .boton-enviar:hover {
+    cursor: pointer;
+    background-color: #7E75E9;
+  }
+

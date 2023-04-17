@@ -1,0 +1,50 @@
+.enviar-mensaje-container {
+    background-color: #d3bbdc;
+    padding: 20px;
+    border: 1px solid  #6b3f87;
+    border-radius: 5px;
+  }
+  
+  .enviar-mensaje-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .enviar-mensaje-form-group {
+    margin-bottom: 10px;
+  }
+  
+  .enviar-mensaje-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .enviar-mensaje-form input[type="text"],
+  .enviar-mensaje-form textarea {
+    padding: 10px;
+    border: 1px solid #6b3f87;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .enviar-mensaje-form textarea {
+    height: 150px;
+    resize: none;
+    width: 100%;
+  }
+  
+  .enviar-mensaje-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .enviar-mensaje-form button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
