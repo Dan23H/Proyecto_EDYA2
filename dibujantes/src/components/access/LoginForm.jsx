@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const {usuario, contraseña, tomarUsuario, tomarContraseña, handleLogin, credencialesInvalidas} = useLoginForm();
-
   return (
     <>
       <body>
