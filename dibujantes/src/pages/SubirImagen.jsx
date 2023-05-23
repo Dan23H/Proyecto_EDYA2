@@ -57,9 +57,15 @@ export const SubirImagen = () => {
         console.log(temp)
         console.log(formData)
 
+        const body = {
+            imagen: temp,
+            categoria: categoria,
+            descripcion: descripcion
+        }
+
         fetch("http://localhost:4000/subirimagen", {
             method: "POST",
-            body: formData,
+            body: JSON.stringify(body),
         })
             .then((response) => response.json())
             .then((data) => {
