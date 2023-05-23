@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export const SubirImagen = () => {
 
-    const [images, setImages] = useState([])
-    const [category, setCategory] = useState('')
-    const [description, setDescription] = useState('') // eslint-disable-next-line
-    let save = {};
-    let fileInput = document.getElementById("fileInput")
+    const [imagen, setImages] = useState([])
+    const [categoria, setCategory] = useState('')
+    const [descripcion, setDescription] = useState('') // eslint-disable-next-line
+    //let save = {};
+    //let fileInput = document.getElementById("fileInput")
     const navigate = useNavigate()
 
     const handleImagen = (e) => {
@@ -41,18 +41,32 @@ export const SubirImagen = () => {
         navigate("/home")
     }
 
-    const handleSave = () => {
-        save = {
-            images: images,
-            category: category,
-            description: description
-        }
-        alert('La imagen ha sido publicada exitosamente!')
-        setImages([])
-        setCategory('')
-        setDescription('')
-        navigate("/home")
-    }
+    const handleSave = (event) => {
+        event.preventDefault();
+        // Aquí debes hacer una solicitud al backend para enviar los datos
+        const formData = new FormData();
+        imagen.forEach((image) => {
+            formData.append("images", image.file);
+        });
+        formData.append("category", categoria);
+        formData.append("description", descripcion);
+
+        fetch("http://localhost:4000/subirImagen", {
+            method: "POST",
+            body: formData,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            alert("La imagen ha sido publicada exitosamente!");
+            setImages([]);
+            setCategory("");
+            setDescription("");
+            navigate("/home");
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    };
 
     return (
         <body className="body">
@@ -70,7 +84,7 @@ export const SubirImagen = () => {
                                 id="category"
                                 onChange={(event) => handleCategory(event)}
                                 title="Define una ruta (un hashtag) para que encuentren tu arte más facilmente!"
-                                value={category}
+                                value={categoria}
                                 required
                             />
 
@@ -81,7 +95,7 @@ export const SubirImagen = () => {
                                 maxLength={500}
                                 onChange={(event) => handleDescription(event)}
                                 title="Enséñale al mundo el significado de tus obras!"
-                                value={description}
+                                value={descripcion}
                             />
 
 
@@ -95,28 +109,28 @@ export const SubirImagen = () => {
                             />
 
                             {
-                                images ?
+                                imagen ?
                                     <>
                                         <hr />
                                         <div className="mt-2">
                                             <h5>
-                                                {category}
+                                                {categoria}
                                             </h5>
                                         </div>
                                         {
 
-                                            images.map((image, index) => (
-                                                <div className="card mb-4 box-shadow">
+                                            imagen.map((imagen, index) => (
+                                                <div className="card mb-4 box-shadow" key={index}>
                                                     {
                                                         <img
-                                                            alt={category}
+                                                            alt={categoria}
                                                             className="card-img-top"
                                                             style={{ height: "300px", objectFit: "cover" }}
-                                                            src={image.url}
+                                                            src={imagen.url}
                                                         />
                                                     }
                                                     <div className="card-body">
-                                                        <p className="card-text">{description}</p>
+                                                        <p className="card-text">{descripcion}</p>
                                                     </div>
                                                 </div>
                                             ))
@@ -131,7 +145,7 @@ export const SubirImagen = () => {
                         <footer>
                             <ul>
                                 <li>
-                                    <button className="btn btn-primary" type="submit" >Subir Imagen</button>
+                                    <button className="btn btn-primary" type="submit" onClick={(event) => handleSave(event)}>Subir Imagen</button>
                                 </li>
                                 <li>
                                     <button className="btn btn-danger" type="button" onClick={(event) => handleReset(event)}>Cancelar</button>

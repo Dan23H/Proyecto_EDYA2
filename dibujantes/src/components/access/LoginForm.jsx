@@ -34,6 +34,7 @@ export const LoginForm = () => {
           <div>
             <button className={styles.signInButton} type="submit">
               Iniciar Sesión
+
             </button>
             <Link to="/register">
               <button className={styles.signInButton} type="button">
