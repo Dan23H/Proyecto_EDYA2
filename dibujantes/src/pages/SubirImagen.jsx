@@ -49,31 +49,30 @@ export const SubirImagen = () => {
         event.preventDefault();
         // Aquí debes hacer una solicitud al backend para enviar los datos
         var formData = new FormData();
-        imagen.forEach((image) => {
-            var temp = btoa(image.file)
-            formData.append("images", temp);
-            console.log(temp)
-        });
-        formData.append("category", categoria);
-        formData.append("description", descripcion);
+        var temp = btoa(imagen[0].file)
+        formData.append("imagen", temp);
+        formData.append("categoria", categoria);
+        formData.append("descripcion", descripcion);
+
+        console.log(temp)
         console.log(formData)
 
         fetch("http://localhost:4000/subirimagen", {
             method: "POST",
             body: formData,
         })
-        .then((response) => response.json())
-        .then((data) => {
-            alert("La imagen ha sido publicada exitosamente!");
-            setImages([]);
-            setCategory("");
-            setDescription("");
-            navigate("/home");
-            //console.log(image.file)
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                alert("La imagen ha sido publicada exitosamente!");
+                setImages([]);
+                setCategory("");
+                setDescription("");
+                navigate("/home");
+                //console.log(image.file)
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
 
     return (
